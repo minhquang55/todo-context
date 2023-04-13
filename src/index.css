@@ -24,3 +24,8 @@ code {
   align-items: center;
   height: 100%;
 }
+
+.dark-bg {
+  background-color: #23272F;
+  color: #fff;
+}

@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import TableTodo from "./TableTodo";
 import { v1 as uuidv1 } from "uuid";
+import ThemeContext from "../context/themeContext";
 
 export default function TodoList() {
   const [todoList, setTodoList] = useState([
@@ -11,6 +12,8 @@ export default function TodoList() {
       status: "todo",
     },
   ]);
+
+  const { theme } = useContext(ThemeContext);
 
   const [isEdit, setIsEdit] = useState(false);
 
@@ -70,7 +73,7 @@ export default function TodoList() {
     }
   };
   return (
-    <div style={{ width: "40%", margin: "0 auto" }}>
+    <div style={{ width: "40%", margin: "0 auto" }} className={theme === 'dark' && 'dark-bg'}>
       <h1 style={{ textAlign: "center", color: "#087EA4" }}>TodoList</h1>
       <label htmlFor="title" class="form-label">
         Tiêu đề
